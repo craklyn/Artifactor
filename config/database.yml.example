@@ -1,0 +1,17 @@
+development:
+  pool: 5
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: artifactor_development
+  username:
+  password:
+
+test:
+  pool: 5
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: artifactor_test
+  username:
+  password:

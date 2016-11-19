@@ -1,0 +1,37 @@
+.rvmrc
+.redcar
+.project
+env_variables
+.env
+.emacs*
+*~
+*#
+*.swp
+*.swo
+*.TODO
+.sass-cache/
+
+.DS_Store
+db/postgres
+db/redis
+vendor/bundle
+
+# Ignore bundler config
+/.bundle
+
+# Ignore log and temp files
+/log/*.log
+/tmp
+*.swp
+*.swo
+
+public/assets/
+public/test_data
+test/data/data
+
+# Ignore database configuration
+/config/database.yml
+
+.idea
+.byebug_history
+.vscode
