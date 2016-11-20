@@ -23,6 +23,7 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'chosen-rails'
+gem 'aws-sdk'
 
 group :development do
   gem 'foreman'

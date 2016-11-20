@@ -1,7 +1,9 @@
 class ArtifactsController < ApplicationController
   EDITABLE_PARAMS = [
     :description,
-    :user_ids
+    :user_ids,
+    :image,
+    tags: []
   ].freeze
 
   def new

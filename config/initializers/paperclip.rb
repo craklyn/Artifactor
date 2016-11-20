@@ -1,0 +1,1 @@
+ENV['S3_BUCKET'] = 'ed-dev-bucket-startup-weekend'
