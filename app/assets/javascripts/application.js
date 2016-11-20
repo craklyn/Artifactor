@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+//= require chosen-jquery
+
+var initArtifactForm = function(){
+  $("#artifact_tags").chosen();
+}
+
+$(document).ready(function() {
+  initArtifactForm();
+});
+
