@@ -24,6 +24,7 @@
 
 body {
   margin: 10px;
+  background-color: #e1e8e0;
   li {
     list-style: none;
   }
@@ -72,12 +73,13 @@ form {
   .artifacts {
     .artifact-list-item {
       position: relative;
-      border: 1px solid #DEDEDE;
+      border: 1px solid #efefef;
       padding: 10px;
       margin: 0px;
       margin-top: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
+      background-color: white;
     }
 
     .artifact {
@@ -139,6 +141,13 @@ form {
         padding-right: 4px;
         cursor: default;
       }
+    }
+
+    .image {
+      img {
+        width: 100%;
+      }
+      margin-bottom: 10px;
     }
 
     .no {
