@@ -1,0 +1,6 @@
+%h1 Invite collaborator
+
+.email-form
+  = simple_form_for 'invite', url: '/send-email' do |f|
+    = f.input :email, required: false
+    = f.submit 'Send'

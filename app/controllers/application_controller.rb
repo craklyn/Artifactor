@@ -6,4 +6,14 @@ class ApplicationController < ActionController::Base
   def root
     redirect_to artifacts_path
   end
+
+  def email_form
+
+  end
+
+  def send_email
+    flash[:notice] = "Email sent to #{params[:invite][:email]}!"
+    redirect_to artifacts_path
+    InviteMailer.invite_collaborator(params[:invite][:email]).deliver_now
+  end
 end

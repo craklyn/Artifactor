@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/artifacts/:id/update', to: 'artifacts#update', as: :update_artifact
   post '/artifacts', to: 'artifacts#create', as: :create_artifact
 
+  get '/invite-collaborator', to: 'application#email_form', as: :new_email
+  post '/send-email', to: 'application#send_email', as: :send_email
 
   root "application#root"
 end

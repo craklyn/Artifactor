@@ -284,6 +284,34 @@ form {
   }
 }
 
+.email-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+
+  label {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+.notice {
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  background-color: #d9edf7;
+  border-color: #bcdff1;
+  color: #31708f;
+}
+
+.invite-user-link a {
+  margin-left: 5px;
+}
+
+.new-student-link, .invite-user-link {
+  display: inline-block;
+}
 
 
 

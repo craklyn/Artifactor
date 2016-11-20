@@ -1,8 +1,20 @@
 .artifact-index
-  %div.new-student-link
-    = link_to new_student_path do
-      %i.fa.fa-plus-circle
-      Add Student
+  .controls
+    .new-student-link
+      = link_to new_student_path do
+        %i.fa.fa-plus-circle
+        Add Student
+    .invite-user-link
+      = link_to new_email_path do
+        %i.fa.fa-plus-circle
+        Invite Collaborator
+
+
+    - if flash[:notice].present?
+      .notice
+        %strong Success!
+        = h(flash[:notice])
+
 
   %hr/
   = form_for :search, url: artifact_search_path, remote: true, html: { id: 'artifact-search' } do |f|
