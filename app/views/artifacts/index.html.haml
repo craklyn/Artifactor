@@ -1,0 +1,7 @@
+%div
+  %span hey
+  %span hey
+
+  -@artifacts.each do |artifact|
+    = artifact.Description
+    = link_to artifact.name, '/'
