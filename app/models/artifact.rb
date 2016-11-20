@@ -1,6 +1,15 @@
 class Artifact < ActiveRecord::Base
 
   CONTENT_TYPE_REGEX = /\Aimage\/.*\Z/
+  TAG_LIST = [
+      "Reading",
+      "Math",
+      "Physical Development",
+      "Social Studies",
+      "Writing",
+      "Science",
+      "Peer Interaction"
+  ]
 
   has_many :user_artifacts
   has_many :users, through: :user_artifacts

@@ -53,7 +53,52 @@ var initArtifactForm = function(){
 
 }
 
+
+
+
+var initArtifactIndex = function(){
+  $("#search_tags").chosen();
+  $("#artifact_user_ids").chosen();
+
+  var searchForm = $('form')
+  var list = $('.artifacts')
+
+
+
+  var searchBox       = searchForm.find('[name*=q]')
+  var selects         = searchForm.find('select')
+
+  searchBox.on('keyup blur paste', function() {
+    executeSearch()
+  })
+
+  selects.on('change', function() {
+    executeSearch()
+  })
+
+  var executeSearch = function() {
+    searchForm.submit()
+  }
+
+
+  searchForm.on('ajax:complete', function(evt, xhr, status){
+    var response  = $.parseJSON(xhr.responseText).html
+    list.html(response)
+  })
+
+  executeSearch()
+}
+
 $(document).ready(function() {
-  initArtifactForm();
+  if ($('.artifact-form').length > 0){
+    initArtifactForm();
+  }
+
+
+  if ($('.artifact-index').length > 0){
+    initArtifactIndex();
+  }
+
+
 });
 

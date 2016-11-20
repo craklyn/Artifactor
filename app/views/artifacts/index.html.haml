@@ -1,18 +1,27 @@
-%div
+.artifact-index
   %div= link_to 'Add student', new_artifact_path
   %hr/
-  %div All Artifacts
-  %div= link_to '+ New', new_artifact_path
-  - @artifacts.each do |artifact|
-    %div
-      = artifact.description
-      - if artifact.tags.present?
-        = artifact.tags.join(', ')
-      - if artifact.image.present?
-        = image_tag artifact.image.url(:large)
-      - if artifact.users.any?
-        = artifact.users.map{|u| u.name}.join(', ')
-      - if artifact.whole_class?
-        whole_class
+  %h2 My Artifacts
+  = form_for :search, url: artifact_search_path, remote: true, html: { id: 'artifact-search' } do |f|
+    %ul
+      %li.search
+        %label Search:
+        %br/
+        = f.text_field 'q'
 
-      = link_to 'Edit', edit_artifact_path(artifact)
+      %li
+        %label Student:
+        %br/
+        = f.select 'student_id', options_for_select([''] + Student.all.map{|s| [s.name, s.id]}), {label: false, allow_blank: true}
+
+      %li
+        %label Tags:
+        %br/
+        = f.select 'tags', options_for_select(tag_list), {label: false}, { multiple: 'true', :placeholder => 'Select' }
+
+      %li
+        = link_to '+ New', new_artifact_path
+
+
+  .artifacts
+    = render partial: 'artifacts/list'

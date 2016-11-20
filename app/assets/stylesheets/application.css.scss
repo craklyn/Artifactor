@@ -21,6 +21,9 @@
 
 body {
   margin: 10px;
+  li {
+    list-style: none;
+  }
 }
 
 // forms
@@ -41,6 +44,25 @@ form {
   }
 }
 
+
+.artifact-index {
+  ul {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #DEDEDE;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  label {
+    font-weight: normal;
+  }
+
+}
 
 
 

@@ -1,13 +1,5 @@
 module ApplicationHelper
   def tag_list
-    [
-        "Reading",
-        "Math",
-        "Physical Development",
-        "Social Studies",
-        "Writing",
-        "Science",
-        "Peer Interaction"
-    ]
+    Artifact::TAG_LIST
   end
 end
