@@ -14,18 +14,22 @@
     .image
       %label Image
       - if @artifact.image.present?
-        = image_tag(@artifact.image.url(:medium))
+        .current Current:
+        = image_tag(@artifact.image.url(:large))
       = f.file_field :image
 
     .whole_class
-      = f.input :whole_class, :collection => [[true, 'All students'], [false, 'Some students']], :label_method => :last, :value_method => :first, :as => :radio_buttons
+      %label Artifact Type
+      = f.input :whole_class, :collection => [[true, 'Checklist'], [false, 'Group']], label: false, :label_method => :last, :value_method => :first, :as => :radio_buttons
 
     .all-students
       %table
         %tr
           %td
-          %td Check
-          %td X
+          %td
+            %i.fa.fa-check
+          %td
+            %i.fa.fa-remove
         - user_artifacts = @artifact.user_artifacts.group_by{|ua| ua.user_id}
         - Student.all.each do |student|
           - user_artifact = user_artifacts[student.id] ? user_artifacts[student.id].first : nil
@@ -38,8 +42,8 @@
 
           %tr
             %td.name= student.name
-            %td= check_box_tag "#{f.object_name}[comprehends_user_ids][]", student.id, user_artifact.comprehends != false
-            %td= check_box_tag "#{f.object_name}[not_comprehends_user_ids][]", student.id, user_artifact.comprehends == false
+            %td.yes= radio_button_tag "#{f.object_name}[comprehends][#{student.id}]", "yes", user_artifact.comprehends != false
+            %td.no= radio_button_tag "#{f.object_name}[comprehends][#{student.id}]", 'no', user_artifact.comprehends == false
 
 
 

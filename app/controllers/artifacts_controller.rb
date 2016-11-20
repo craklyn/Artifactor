@@ -5,8 +5,8 @@ class ArtifactsController < ApplicationController
     :image,
     :whole_class,
     user_ids: [],
-    comprehends_user_ids: [],
-    not_comprehends_user_ids: [],
+    comprehends: [
+    ],
     tags: []
   ].freeze
 
@@ -15,16 +15,16 @@ class ArtifactsController < ApplicationController
   end
 
   def create
+    create_params = params[:artifact].dup
+    original_params = params[:artifact].dup
 
-    new_params = artifact_params
-    comprehends_user_ids = new_params.delete(:comprehends_user_ids) || []
-    not_comprehends_user_ids = new_params.delete(:not_comprehends_user_ids) || []
+    h = create_params.delete(:comprehends) || {}
+    comprehends_user_ids = h.select{|k,v| v == 'yes'}.keys
+    not_comprehends_user_ids = h.select{|k,v| v == 'no'}.keys
 
-    @artifact = Artifact.create(new_params)
-    @artifact.update_attributes({
-                                    comprehends_user_ids: comprehends_user_ids,
-                                    not_comprehends_user_ids: not_comprehends_user_ids
-                                }.with_indifferent_access)
+    @artifact = Artifact.create(create_params)
+    @artifact.update_attributes(original_params)
+
 
     if @artifact.errors.any?
       @comprehends_user_ids = comprehends_user_ids
@@ -99,7 +99,7 @@ class ArtifactsController < ApplicationController
 
   def update
     @artifact = Artifact.find(params[:id])
-    @artifact.update_attributes(artifact_params)
+    @artifact.update_attributes(params[:artifact])
 
     if @artifact.errors.any?
       render 'artifacts/new'

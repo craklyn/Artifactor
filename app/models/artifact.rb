@@ -25,11 +25,12 @@ class Artifact < ActiveRecord::Base
   accepts_nested_attributes_for :user_artifacts
   serialize :tags
 
+  default_scope { order(created_at: :desc) }
 
   def prep_attrs(attrs)
-    comprehends_user_ids = attrs.delete(:comprehends_user_ids) || []
-    not_comprehends_user_ids = attrs.delete(:not_comprehends_user_ids) || []
-
+    h = attrs.delete(:comprehends) || {}
+    comprehends_user_ids = h.select{|k,v| v == 'yes'}.keys
+    not_comprehends_user_ids = h.select{|k,v| v == 'no'}.keys
 
     comprehends_user_ids.each do |user_id|
       existing = UserArtifact.where(user_id: user_id, artifact_id: self.id).first

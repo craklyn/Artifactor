@@ -142,4 +142,86 @@ form {
 
 
 
+.artifact-form {
+  margin-bottom: 200px;
+
+  .description {
+    textarea {
+      width: 100%;
+      min-height: 150px;
+    }
+    margin-bottom: 15px;
+  }
+
+  .tags {
+    label, input {
+      display: block;
+    }
+
+    .chosen-container {
+      width: 100% !important;
+    }
+
+    margin-bottom: 15px;
+  }
+
+  .some-students {
+    .chosen-container {
+      width: 100% !important;
+    }
+  }
+
+
+  .image {
+    label, input {
+      display: block;
+    }
+
+    img {
+      border: 1px solid #CCCCCC;
+      padding: 10px;
+      border-radius: 6px;
+      max-width: 200px;
+    }
+
+    input {
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    margin-bottom: 15px;
+  }
+
+  .whole_class {
+    .radio {
+      display: inline-block;
+      width: 110px;
+      border: 1px solid #EFEFEF;
+      border-radius: 5px;
+      padding-left: 9px;
+      margin-right: 8px;
+    }
+
+    input {
+      margin-left: 0;
+    }
+
+    margin-bottom: 10px;
+
+  }
+
+  .all-students {
+    td.name {
+      min-width: 100px;
+      padding: 5px;
+    }
+
+    td {
+      min-width: 30px;
+    }
+  }
+}
+
+
+
 
