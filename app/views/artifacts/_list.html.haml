@@ -53,8 +53,7 @@
             .tag= tag
 
       .date
-        = "#{artifact.created_at.strftime('%b %d, %Y at %-I:%M%P')}"
-
+        = "#{artifact.created_at.in_time_zone("America/Los_Angeles").strftime('%b %d, %Y at %-I:%M%P')}"
 
       .actions
         = link_to edit_artifact_path(artifact) do
