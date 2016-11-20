@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119235652) do
+ActiveRecord::Schema.define(version: 20161120002252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20161119235652) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "avatar_fingerprint"
+    t.string   "type"
   end
 
 end
