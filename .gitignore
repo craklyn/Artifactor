@@ -10,6 +10,7 @@ env_variables
 *.swo
 *.TODO
 .sass-cache/
+config/initializers/load_config.rb
 
 .DS_Store
 db/postgres

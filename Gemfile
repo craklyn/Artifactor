@@ -19,6 +19,7 @@ gem 'haml-rails'
 gem 'bourbon'
 gem 'font_assets'
 gem 'rack-timeout'
+gem 'paperclip'
 
 group :development do
   gem 'foreman'
