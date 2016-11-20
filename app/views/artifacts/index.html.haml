@@ -1,8 +1,9 @@
 .artifact-index
-  %div
+  %div.new-student-link
     = link_to new_student_path do
       %i.fa.fa-plus-circle
       Add Student
+
   %hr/
   = form_for :search, url: artifact_search_path, remote: true, html: { id: 'artifact-search' } do |f|
     %ul
