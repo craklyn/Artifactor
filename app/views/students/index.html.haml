@@ -4,3 +4,4 @@
 
   -@students.each do |student|
     = student.name
+    = link_to student.name, student_artifacts_path(student)
