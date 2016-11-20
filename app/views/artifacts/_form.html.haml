@@ -1,6 +1,6 @@
 .artifact-form
   = simple_form_for @artifact, url: @artifact.new_record? ? create_artifact_path : update_artifact_path(@artifact) do |f|
     = f.input :description, as: :text, error: false, required: false
-
+    = f.select :tags, tag_list
 
     = f.submit 'Save'
