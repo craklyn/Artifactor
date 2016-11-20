@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :user_artifacts
   has_many :artifacts, through: :user_artifacts
 
+  default_scope { order(last_name: :asc) }
+
 end
