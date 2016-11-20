@@ -24,17 +24,18 @@
             - artifact.users.each do |user|
               .user= user.name
 
-          .checklist-preview
-            .yes
-              %i.fa.fa-check
-              .users
-                - artifact.user_artifacts.select{|ua| ua.comprehends}.each do |ua|
-                  .user= ua.user.name
-            .no
-              %i.fa.fa-remove
-              .users
-                - artifact.user_artifacts.reject{|ua| ua.comprehends}.each do |ua|
-                  .user= ua.user.name
+          - if artifact.whole_class?
+            .checklist-preview
+              .yes
+                %i.fa.fa-check
+                .users
+                  - artifact.user_artifacts.select{|ua| ua.comprehends}.each do |ua|
+                    .user= ua.user.name
+              .no
+                %i.fa.fa-remove
+                .users
+                  - artifact.user_artifacts.reject{|ua| ua.comprehends}.each do |ua|
+                    .user= ua.user.name
 
 
       .description.short

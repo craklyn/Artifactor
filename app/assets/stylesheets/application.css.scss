@@ -24,6 +24,7 @@
 
 body {
   margin: 10px;
+  background-color: #e1e8e0;
   li {
     list-style: none;
   }
@@ -38,6 +39,10 @@ form {
 }
 
 .student-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+
   label {
     min-width: 100px;
   }
@@ -72,12 +77,13 @@ form {
   .artifacts {
     .artifact-list-item {
       position: relative;
-      border: 1px solid #DEDEDE;
+      border: 1px solid #efefef;
       padding: 10px;
       margin: 0px;
       margin-top: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
+      background-color: white;
     }
 
     .artifact {
@@ -141,6 +147,13 @@ form {
       }
     }
 
+    .image {
+      img {
+        width: 100%;
+      }
+      margin-bottom: 10px;
+    }
+
     .no {
       .user {
         background-color: #fdefce;
@@ -152,6 +165,9 @@ form {
 
 
 .artifact-form {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
   margin-bottom: 200px;
 
   .description {
