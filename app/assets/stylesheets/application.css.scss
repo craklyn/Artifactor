@@ -39,6 +39,10 @@ form {
 }
 
 .student-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+
   label {
     min-width: 100px;
   }
@@ -161,6 +165,9 @@ form {
 
 
 .artifact-form {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
   margin-bottom: 200px;
 
   .description {
