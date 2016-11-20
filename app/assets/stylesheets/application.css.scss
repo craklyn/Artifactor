@@ -18,6 +18,9 @@
 @import "bootstrap";
 @import "chosen";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 
 body {
   margin: 10px;
@@ -61,7 +64,80 @@ form {
   label {
     font-weight: normal;
   }
+  .chosen-container {
+    width: 100px !important;
+  }
 
+
+  .artifacts {
+    .artifact-list-item {
+      position: relative;
+      border: 1px solid #DEDEDE;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+
+    .artifact {
+      min-height: 50px;
+    }
+    .tag-list {
+      margin-bottom: 8px;
+
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0px 6px;
+      margin: 0px 1px;
+      border: 1px solid #e2ddaa;
+      background-color: #faf5bf;
+      border-radius: 4px;
+      cursor: default;
+    }
+
+    .actions {
+      position: absolute;
+      top: 8px;
+      right: 0px;
+
+      a {
+        padding: 15px;
+      }
+    }
+
+    .type {
+      display: inline;
+      font-size: 110%;
+    }
+
+    .description {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      display: inline;
+      font-size: 80%;
+    }
+
+    .users {
+      i {
+        margin-right: 5px;
+      }
+      .user {
+        display: inline-block;
+        background-color: #cdeeda;
+        border-radius: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        cursor: default;
+      }
+    }
+  }
 }
 
 

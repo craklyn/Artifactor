@@ -1,13 +1,48 @@
 - @artifacts.each do |artifact|
-  %div.artifact
-    = artifact.description
-    - if artifact.tags.present?
-      = artifact.tags.join(', ')
-    - if artifact.image.present?
-      = image_tag artifact.image.url(:large)
-    - if artifact.users.any?
-      = artifact.users.map{|u| u.name}.join(', ')
-    - if artifact.whole_class?
-      whole_class
+  %div.artifact-list-item
+    %div.artifact
 
-    = link_to 'Edit', edit_artifact_path(artifact)
+      - if artifact.users.any?
+        .users.short
+          %i.fa.fa-user-circle-o
+          .type
+            - if artifact.whole_class?
+              Survey of
+            - else
+              Artifact for
+          - artifact.users[0..5].each do |user|
+            .user= user.first_name
+        .users.full.hidden
+          %i.fa.fa-user-circle-o
+          .type
+            - if artifact.whole_class?
+              Survey of
+            - else
+              Artifact for
+          - artifact.users.each do |user|
+            .user= user.name
+
+      .description.short
+        = "#{artifact.description[0..200]}#{artifact.description.length > 200 ? ' ... show more' : ''}"
+
+      .description.full.hidden= artifact.description
+
+      - if artifact.image.present?
+        .image
+          = image_tag artifact.image.url(:large)
+
+      - if artifact.tags.present?
+        .tag-list
+          - artifact.tags.select{|t| t.present?}.each do |tag|
+            .tag= tag
+
+      .date
+        = "#{artifact.created_at.strftime('%b %d, %Y at %-I:%M%P')}"
+
+
+      .actions
+        = link_to edit_artifact_path(artifact) do
+          %i.fa.fa-pencil
+          Edit
+
+

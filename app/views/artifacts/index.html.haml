@@ -1,5 +1,8 @@
 .artifact-index
-  %div= link_to 'Add student', new_artifact_path
+  %div
+    = link_to new_student_path do
+      %i.fa.fa-plus-circle
+      Add Student
   %hr/
   %h2 My Artifacts
   = form_for :search, url: artifact_search_path, remote: true, html: { id: 'artifact-search' } do |f|
@@ -7,7 +10,7 @@
       %li.search
         %label Search:
         %br/
-        = f.text_field 'q'
+        = f.text_field 'q', placeholder: ''
 
       %li
         %label Student:
@@ -17,10 +20,12 @@
       %li
         %label Tags:
         %br/
-        = f.select 'tags', options_for_select(tag_list), {label: false}, { multiple: 'true', :placeholder => 'Select' }
+        = f.select 'tags', options_for_select(tag_list), {label: false}, { multiple: 'true', "data-placeholder" => 'Select' }
 
       %li
-        = link_to '+ New', new_artifact_path
+        = link_to new_artifact_path do
+          %i.fa.fa-plus-circle
+          Add
 
 
   .artifacts

@@ -58,7 +58,7 @@ var initArtifactForm = function(){
 
 var initArtifactIndex = function(){
   $("#search_tags").chosen();
-  $("#artifact_user_ids").chosen();
+  $("#search_student_id").chosen({allow_single_deselect: true});
 
   var searchForm = $('form')
   var list = $('.artifacts')
@@ -84,9 +84,28 @@ var initArtifactIndex = function(){
   searchForm.on('ajax:complete', function(evt, xhr, status){
     var response  = $.parseJSON(xhr.responseText).html
     list.html(response)
+    bindExpand()
   })
 
   executeSearch()
+}
+
+
+var bindExpand = function() {
+  $(".artifact-list-item").on('click', function(){
+    var that = this
+    var full = $(that).find('.full:visible').length > 0
+
+    if (full) {
+      $(that).find('.short').removeClass('hidden')
+      $(that).find('.full').addClass('hidden')
+    } else {
+      $(that).find('.short').addClass('hidden')
+      $(that).find('.full').removeClass('hidden')
+    }
+
+    event.stopPropagation()
+  })
 }
 
 $(document).ready(function() {

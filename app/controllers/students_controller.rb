@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
     if @student.errors.any?
       render 'students/new'
     else
-      redirect_to students_path
+      redirect_to artifacts_path
     end
   end
 
@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
     if @student.errors.any?
       render 'students/new'
     else
-      redirect_to students_path
+      redirect_to artifacts_path
     end
   end
 

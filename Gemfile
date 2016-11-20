@@ -24,6 +24,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'chosen-rails'
 gem 'aws-sdk'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'foreman'
