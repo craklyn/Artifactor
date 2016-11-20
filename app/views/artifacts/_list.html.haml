@@ -26,15 +26,15 @@
 
           - if artifact.whole_class?
             .checklist-preview
-              .yes
-                %i.fa.fa-check
-                .users
-                  - artifact.user_artifacts.select{|ua| ua.comprehends}.each do |ua|
-                    .user= ua.user.name
               .no
                 %i.fa.fa-remove
                 .users
                   - artifact.user_artifacts.reject{|ua| ua.comprehends}.each do |ua|
+                    .user= ua.user.name
+              .yes
+                %i.fa.fa-check
+                .users
+                  - artifact.user_artifacts.select{|ua| ua.comprehends}.each do |ua|
                     .user= ua.user.name
 
 
