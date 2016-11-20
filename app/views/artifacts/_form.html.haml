@@ -1,7 +1,50 @@
+- if @artifact.errors.any?
+  = @artifact.errors.full_messages.join(", ")
 .artifact-form
-  = simple_form_for @artifact, url: @artifact.new_record? ? create_artifact_path : update_artifact_path(@artifact) do |f|
-    = f.input :description, as: :text, error: false, required: false
-    = f.select :tags, tag_list, {}, { multiple: 'true', :placeholder => 'Select' }
+  = simple_form_for @artifact, url: @artifact.new_record? ? create_artifact_path : update_artifact_path(@artifact), method: :post do |f|
 
-    = f.file_field :image
+    .description
+      %label Description
+      = f.input :description, as: :text, error: false, required: false, label: false
+    .tags
+      %label Tags
+      = f.select :tags, tag_list, {label: false}, { multiple: 'true', :placeholder => 'Select' }
+
+
+    .image
+      %label Image
+      - if @artifact.image.present?
+        = image_tag(@artifact.image.url(:medium))
+      = f.file_field :image
+
+    .whole_class
+      = f.input :whole_class, :collection => [[true, 'All students'], [false, 'Some students']], :label_method => :last, :value_method => :first, :as => :radio_buttons
+
+    .all-students
+      %table
+        %tr
+          %td
+          %td Check
+          %td X
+        - user_artifacts = @artifact.user_artifacts.group_by{|ua| ua.user_id}
+        - Student.all.each do |student|
+          - user_artifact = user_artifacts[student.id] ? user_artifacts[student.id].first : nil
+
+          - if user_artifact.nil? && @not_comprehends_user_ids && student.id.to_s.in?(@not_comprehends_user_ids)
+            - user_artifact = UserArtifact.new(artifact: @artifact, user: student, comprehends: false)
+
+          - if user_artifact.nil?
+            - user_artifact = UserArtifact.new(artifact: @artifact, user: student, comprehends: true)
+
+          %tr
+            %td.name= student.name
+            %td= check_box_tag "#{f.object_name}[comprehends_user_ids][]", student.id, user_artifact.comprehends != false
+            %td= check_box_tag "#{f.object_name}[not_comprehends_user_ids][]", student.id, user_artifact.comprehends == false
+
+
+
+    .some-students
+      = f.select :user_ids, Student.all.map{|s| [s.name, s.id]}, {label: false}, { multiple: 'true', :placeholder => 'Select' }
+
+    %br/
     = f.submit 'Save'

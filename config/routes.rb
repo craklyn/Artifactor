@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/artifacts', to: 'artifacts#index', as: :artifacts
   get '/artifacts/new', to: 'artifacts#new', as: :new_artifact
+  get '/artifacts/:id/edit', to: 'artifacts#edit', as: :edit_artifact
+  post '/artifacts/:id/update', to: 'artifacts#update', as: :update_artifact
   post '/artifacts', to: 'artifacts#create', as: :create_artifact
 
 

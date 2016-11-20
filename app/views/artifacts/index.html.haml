@@ -10,3 +10,9 @@
         = artifact.tags.join(', ')
       - if artifact.image.present?
         = image_tag artifact.image.url(:large)
+      - if artifact.users.any?
+        = artifact.users.map{|u| u.name}.join(', ')
+      - if artifact.whole_class?
+        whole_class
+
+      = link_to 'Edit', edit_artifact_path(artifact)
