@@ -1,4 +1,4 @@
-class ArtifactsController < ActionController::Base
+class ArtifactsController < ApplicationController
 
   def index
     @student = Student.find(params[:id])
