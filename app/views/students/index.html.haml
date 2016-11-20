@@ -1,7 +1,5 @@
-%div
-  %span hey
-  %span hey
+%div.student-list
 
   -@students.each do |student|
-    = student.name
-    = link_to student.name, student_artifacts_path(student)
+    %div.student-item
+      %span.student-link=link_to student.name, student_artifacts_path(student)
