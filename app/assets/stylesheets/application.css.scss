@@ -22,6 +22,31 @@
 @import "font-awesome";
 
 
+.new-student-link {
+  padding: 10px;
+}
+
+body {
+  font-size: 1.6em
+}
+
+
+.mobile {
+  font-size: 2em;
+  .app-wrapper {
+    margin: 15px;
+  }
+}
+
+.desktop {
+  .app-wrapper {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+
+
 body {
   margin: 10px;
   background-color: #e1e8e0;
@@ -245,7 +270,7 @@ form {
       min-width: 40px;
       text-align: center;
     }
-    
+
     .fa {
       font-size: 20px;
     }
