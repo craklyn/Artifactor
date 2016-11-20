@@ -1,3 +1,8 @@
 %div
-  -@artifacts.each do |artifact|
-    = artifact.description
+  %div= link_to 'Add student', new_artifact_path
+  %hr/
+  %div All Artifacts
+  %div= link_to '+ New', new_artifact_path
+  - @artifacts.each do |artifact|
+    %div
+      = artifact.description

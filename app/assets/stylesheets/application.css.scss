@@ -16,3 +16,33 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+
+body {
+  margin: 10px;
+}
+
+// forms
+
+form {
+  .field_with_errors {
+    color: red
+  }
+}
+
+.student-form {
+  label {
+    min-width: 100px;
+  }
+
+  .input {
+    margin-bottom: 8px;
+  }
+}
+
+
+
+
+

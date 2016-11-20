@@ -1,0 +1,7 @@
+.student-form
+  = simple_form_for @student, url: @student.new_record? ? create_student_path : update_student_path(@student) do |f|
+    = f.input :first_name, error: false, required: false
+    = f.input :last_name, error: false, required: false
+    = f.input :email, error: false, required: false
+
+    = f.submit 'Save'

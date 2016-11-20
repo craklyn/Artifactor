@@ -1,9 +1,0 @@
-%div.student-list
-
-  %div.jumbotron
-    %div.display-3
-      Test!
-
-  -@students.each do |student|
-    %div.student-item
-      %span.student-link=link_to student.name, student_artifacts_path(student)

@@ -21,6 +21,8 @@ gem 'font_assets'
 gem 'rack-timeout'
 gem 'paperclip'
 gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'chosen-rails'
 
 group :development do
   gem 'foreman'
