@@ -19,8 +19,8 @@
       = f.file_field :image
 
     .whole_class
-      %label Artifact Type
-      = f.input :whole_class, :collection => [[true, 'Checklist'], [false, 'Group']], label: false, :label_method => :last, :value_method => :first, :as => :radio_buttons
+      %label Students Involved
+      = f.input :whole_class, :collection => [[true, 'Class Checklist'], [false, 'Individual(s)']], label: false, :label_method => :last, :value_method => :first, :as => :radio_buttons
 
     .all-students
       %table

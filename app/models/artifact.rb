@@ -25,7 +25,7 @@ class Artifact < ActiveRecord::Base
   accepts_nested_attributes_for :user_artifacts
   serialize :tags
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(updated_at: :desc) }
 
   def prep_attrs(attrs)
     h = attrs.delete(:comprehends) || {}

@@ -4,7 +4,6 @@
       %i.fa.fa-plus-circle
       Add Student
   %hr/
-  %h2 My Artifacts
   = form_for :search, url: artifact_search_path, remote: true, html: { id: 'artifact-search' } do |f|
     %ul
       %li.search
@@ -15,7 +14,7 @@
       %li
         %label Student:
         %br/
-        = f.select 'student_id', options_for_select([''] + Student.all.map{|s| [s.name, s.id]}), {label: false, allow_blank: true}
+        = f.select 'student_id', options_for_select([''] + Student.all.map{|s| [s.name, s.id]}), {label: false, allow_blank: true}, "data-placeholder" => 'Select'
 
       %li
         %label Tags:

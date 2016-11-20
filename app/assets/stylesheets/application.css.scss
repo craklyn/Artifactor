@@ -81,6 +81,7 @@ form {
     }
 
     .artifact {
+      cursor: pointer;
       min-height: 50px;
     }
     .tag-list {
@@ -137,6 +138,12 @@ form {
         padding-left: 4px;
         padding-right: 4px;
         cursor: default;
+      }
+    }
+
+    .no {
+      .user {
+        background-color: #fdefce;
       }
     }
   }
@@ -197,7 +204,7 @@ form {
   .whole_class {
     .radio {
       display: inline-block;
-      width: 110px;
+      width: 150px;
       border: 1px solid #EFEFEF;
       border-radius: 5px;
       padding-left: 9px;
@@ -209,17 +216,28 @@ form {
     }
 
     margin-bottom: 10px;
-
   }
 
   .all-students {
     td.name {
       min-width: 100px;
       padding: 5px;
+      text-align: left;
     }
 
     td {
-      min-width: 30px;
+      min-width: 40px;
+      text-align: center;
+    }
+    
+    .fa {
+      font-size: 20px;
+    }
+    .fa-check {
+      color: #00c153;
+    }
+    .fa-remove {
+      color: #d3ab2d;
     }
   }
 }

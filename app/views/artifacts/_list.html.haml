@@ -7,25 +7,40 @@
           %i.fa.fa-user-circle-o
           .type
             - if artifact.whole_class?
-              Survey of
+              Checklist
             - else
-              Artifact for
+              Artifact
           - artifact.users[0..5].each do |user|
             .user= user.first_name
         .users.full.hidden
           %i.fa.fa-user-circle-o
           .type
             - if artifact.whole_class?
-              Survey of
+              Checklist
             - else
-              Artifact for
-          - artifact.users.each do |user|
-            .user= user.name
+              Artifact
+
+          - if !artifact.whole_class?
+            - artifact.users.each do |user|
+              .user= user.name
+
+          .checklist-preview
+            .yes
+              %i.fa.fa-check
+              .users
+                - artifact.user_artifacts.select{|ua| ua.comprehends}.each do |ua|
+                  .user= ua.user.name
+            .no
+              %i.fa.fa-remove
+              .users
+                - artifact.user_artifacts.reject{|ua| ua.comprehends}.each do |ua|
+                  .user= ua.user.name
+
 
       .description.short
-        = "#{artifact.description[0..200]}#{artifact.description.length > 200 ? ' ... show more' : ''}"
+        = "#{showlines(artifact.description[0..200]).html_safe}#{artifact.description.length > 200 ? ' ... show more' : ''}".html_safe
 
-      .description.full.hidden= artifact.description
+      .description.full.hidden= showlines(artifact.description).html_safe
 
       - if artifact.image.present?
         .image
