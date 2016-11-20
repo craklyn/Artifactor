@@ -20,6 +20,7 @@ gem 'bourbon'
 gem 'font_assets'
 gem 'rack-timeout'
 gem 'paperclip'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'foreman'
