@@ -3,8 +3,6 @@ if ($('.artifact-form').length > 0) {
 
 console.log("Resizing file!");
 
-debugger
-
 var fileinput = document.getElementById('fileinput');
 
 var max_width = fileinput.getAttribute('data-maxwidth');
