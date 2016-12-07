@@ -16,7 +16,7 @@
       - if @artifact.image.present?
         .current Current:
         = image_tag(@artifact.image.url(:large))
-      = f.file_field :image
+      = f.file_field :image, id: "fileinput"
 
     .whole_class
       %label Students Involved
