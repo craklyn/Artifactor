@@ -77,6 +77,8 @@
 6 Create a Postgres database
 
         pg_ctl init -D db/postgres
+        OR
+        /usr/lib/postgresql/9.3/bin/initdb -D db/postgres
 
 7. Create a Redis directory
 
